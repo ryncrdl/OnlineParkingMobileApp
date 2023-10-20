@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AboutSystemActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terms and condition"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:layout_margin="14dp"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The act of stopping and disengaging a vehicle and leaving it unoccpied. Parking on one or both sides of a road is often permitted, though sometimes with restrictions. Some buildings have parking facilities for use of the buldings users. Countries and local goverments have rules."
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_margin="14dp"
+        android:lineHeight="40dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/backHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Dashboard"
+        android:background="@color/black"
+        android:layout_margin="14dp"
+        android:layout_gravity="bottom|end"
+        android:padding="20dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>

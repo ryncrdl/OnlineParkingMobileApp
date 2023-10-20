@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:scrollbars="vertical"
+    tools:context=".TermsConditionActivity">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terms and condition"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:layout_margin="14dp"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parking Sign and Road Markings"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="14dp"
+        android:lineHeight="40dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parking signs and road markings are used on all university roads and in campus car parks to identify."
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_margin="14dp"
+        android:lineHeight="40dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Availability of Parking Spaces"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="14dp"
+        android:lineHeight="40dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We list the university controls the numbers, types and locations of permits, no guarantee is given that a particular permit by type will be available in any such location at all times. Parking is subject to normal user demand(first come). The responsibility for finding available authorized parking as always rests with the vehicle."
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_margin="14dp"
+        android:lineHeight="40dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/backHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Dashboard"
+        android:background="@color/black"
+        android:layout_margin="14dp"
+        android:layout_gravity="bottom|end"
+        android:padding="20dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>
+</ScrollView>
