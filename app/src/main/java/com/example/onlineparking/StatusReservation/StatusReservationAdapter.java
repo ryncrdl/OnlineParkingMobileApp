@@ -55,13 +55,13 @@ public class StatusReservationAdapter extends RecyclerView.Adapter<StatusReserva
             holder.date.setText(person.getDate());
         }
 
-        if(person.getFloor().contains("none")){
+        if(person.getFloor().contains("Select Floor")){
             holder.floor.setText("--");
         }else{
             holder.floor.setText(person.getFloor());
         }
 
-        if(person.getSlot().contains("none")){
+        if(person.getSlot().contains("Select Slot")){
             holder.slot.setText("--");
         }else{
 
