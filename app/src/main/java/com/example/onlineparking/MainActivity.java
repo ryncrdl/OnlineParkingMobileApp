@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.onlineparking.Api.ApiEndpoints;
 import com.example.onlineparking.Dashboard.DashboardActivity;
 import com.example.onlineparking.Login.PersonResponse;
+import com.example.onlineparking.Registration.RegistrationActivity;
 import com.google.gson.JsonObject;
 
 import okhttp3.MediaType;
@@ -53,11 +54,7 @@ public class MainActivity extends AppCompatActivity {
         txtPassword =  findViewById(R.id.password);
 
         btnRegistration.setOnClickListener(view -> {
-
-            WebView webView = findViewById(R.id.webView);
-            String websiteUrl = "https://facebook.com/signUp";
-            webView.loadUrl(websiteUrl);
-
+            startActivity(new Intent(this, RegistrationActivity.class));
         });
 
 
@@ -72,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkUsernameAndPassword(String username, String password){
         if(username.isEmpty()){
-            Toast.makeText(MainActivity.this, "Please your username", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Please enter your username", Toast.LENGTH_SHORT).show();
         }else if(password.isEmpty()){
-            Toast.makeText(MainActivity.this, "Please your password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Please enter your password", Toast.LENGTH_SHORT).show();
         }else if(!username.isEmpty() && !password.isEmpty()){
             validateCredentials(username, password);
         }

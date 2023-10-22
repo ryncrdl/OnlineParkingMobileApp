@@ -8,6 +8,7 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:layout_width="175dp"
         android:layout_height="187dp"
@@ -125,10 +126,4 @@
         android:textSize="16dp"
         android:textStyle="bold" />
 
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        />
 </RelativeLayout>

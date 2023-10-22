@@ -28,6 +28,13 @@
         </activity>
 
         <activity
+            android:name=".Registration.RegistrationActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+        <activity
             android:name=".Dashboard.DashboardActivity"
             android:exported="true"
             android:screenOrientation="portrait"

@@ -42,15 +42,31 @@ public class StatusReservationAdapter extends RecyclerView.Adapter<StatusReserva
             holder.timein.setText(person.getTimein());
         }
 
-        if(person.getTimein().contains("none")){
-            holder.timeout.setText("On Parked");
+        if(person.getTimeout().contains("none") && person.getTimein().contains("none")){
+            holder.timeout.setText("--");
         }else{
             holder.timeout.setText(person.getTimein());
         }
 
-        holder.date.setText(person.getDate());
-        holder.floor.setText(person.getFloor());
-        holder.slot.setText(person.getSlot());
+        if(person.getDate().contains("none") && person.getTimeout().contains("none") && person.getTimein().contains("none")){
+            holder.date.setText("--");
+
+        }else{
+            holder.date.setText(person.getDate());
+        }
+
+        if(person.getFloor().contains("none")){
+            holder.floor.setText("--");
+        }else{
+            holder.floor.setText(person.getFloor());
+        }
+
+        if(person.getSlot().contains("none")){
+            holder.slot.setText("--");
+        }else{
+
+            holder.slot.setText(person.getSlot());
+        }
     }
 
     @Override

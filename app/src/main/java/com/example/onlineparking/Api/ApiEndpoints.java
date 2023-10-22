@@ -1,6 +1,7 @@
 package com.example.onlineparking.Api;
 
 import com.example.onlineparking.Login.PersonResponse;
+import com.example.onlineparking.Registration.CreatePerson;
 
 import java.util.List;
 
@@ -23,4 +24,8 @@ public interface ApiEndpoints {
 
     @POST("app/application-0-ltegn/endpoint/getReservationById")
     Call<List<PersonResponse>> getReservationById(@Body RequestBody requestBody);
+
+    //Create person/user
+    @POST("app/application-0-ltegn/endpoint/createPerson")
+    Call<CreatePerson> createPerson(@Body RequestBody requestBody);
 }
