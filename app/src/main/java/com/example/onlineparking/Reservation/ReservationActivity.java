@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlineparking.Api.ApiClient;
@@ -21,6 +22,7 @@ import com.example.onlineparking.Api.ApiEndpoints;
 import com.example.onlineparking.Dashboard.DashboardActivity;
 import com.example.onlineparking.Login.PersonResponse;
 import com.example.onlineparking.R;
+import com.example.onlineparking.Utils.CustomTimePicker;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -81,25 +83,25 @@ public class ReservationActivity extends AppCompatActivity {
         f1.setOnClickListener(view -> {
             ResetBackgroundColor();
             displayAvailableLots();
-            f1.setBackgroundResource(R.drawable.bg1);
+            setBackgroundColor(f1);
             fetchAndDisplaySlots("1");
         });
         f2.setOnClickListener(view -> {
             ResetBackgroundColor();
             displayAvailableLots();
-            f2.setBackgroundResource(R.drawable.bg1);
+            setBackgroundColor(f2);
             fetchAndDisplaySlots("2");
         });
         f3.setOnClickListener(view -> {
             ResetBackgroundColor();
             displayAvailableLots();
-            f3.setBackgroundResource(R.drawable.bg1);
+            setBackgroundColor(f3);
             fetchAndDisplaySlots("3");
         });
         f4.setOnClickListener(view -> {
             ResetBackgroundColor();
             displayAvailableLots();
-            f4.setBackgroundResource(R.drawable.bg1);
+            setBackgroundColor(f4);
             fetchAndDisplaySlots("4");
         });
     }
@@ -113,13 +115,25 @@ public class ReservationActivity extends AppCompatActivity {
         f2.setBackgroundResource(R.drawable.border);
         f3.setBackgroundResource(R.drawable.border);
         f4.setBackgroundResource(R.drawable.border);
+        f1.setTextColor(ContextCompat.getColor(f1.getContext(), R.color.black));
+        f2.setTextColor(ContextCompat.getColor(f2.getContext(), R.color.black));
+        f3.setTextColor(ContextCompat.getColor(f3.getContext(), R.color.black));
+        f4.setTextColor(ContextCompat.getColor(f4.getContext(), R.color.black));
+
+    }
+
+    private void setBackgroundColor(TextView textView) {
+        textView.setBackgroundResource(R.drawable.bg1);
+        textView.setTextColor(ContextCompat.getColor(textView.getContext(), R.color.white));
     }
 
     private void changeSlotBackground(TextView textView, boolean isOccupied) {
         if (isOccupied) {
             textView.setBackgroundResource(R.drawable.bg1);
+            textView.setTextColor(ContextCompat.getColor(textView.getContext(), R.color.white));
         } else {
             textView.setBackgroundResource(R.drawable.border);
+            textView.setTextColor(ContextCompat.getColor(textView.getContext(), R.color.black));
         }
     }
 
@@ -147,7 +161,6 @@ public class ReservationActivity extends AppCompatActivity {
 
                         TextView[] allTextViews = {l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12};
 
-                        // Iterate through all the TextViews
                         for (int i = 0; i < allTextViews.length; i++) {
                             TextView textView = allTextViews[i];
                             String slotNumber = String.valueOf(i + 1);
@@ -156,7 +169,6 @@ public class ReservationActivity extends AppCompatActivity {
                             if (slots.contains(slotNumber)) {
                                 changeSlotBackground(textView, true);
                             } else {
-                                // Slot is available, set a different background (e.g., border)
                                 changeSlotBackground(textView, false);
                             }
 
@@ -166,26 +178,31 @@ public class ReservationActivity extends AppCompatActivity {
                             TextView textView = allTextViews[i];
                             int finalI = i;
 
-                            // Add an OnClickListener to each TextView
+
                             textView.setOnClickListener(view -> {
                                 String slotNumber = String.valueOf(finalI + 1);
-
-                                // Check if the slot is occupied
                                 if (slots.contains(slotNumber)) {
-                                    // Slot is occupied, display a message
+
                                     displayOccupiedSlotMessage();
                                 } else {
                                     getPeronId();
-                                    requestReservation(personId, floorNumber, slotNumber);
-                                    changeSlotBackground(textView, false);
+
+                                    CustomTimePicker customTimePicker = new CustomTimePicker(ReservationActivity.this);
+                                    customTimePicker.setOnTimeSelectedListener((hourOfDay, minute, shift) -> {
+                                        String time = String.format("%02d:%02d %s", hourOfDay, minute, shift);
+                                        requestReservation(personId, floorNumber, slotNumber, time);
+                                        changeSlotBackground(textView, false);
+                                    });
+
+                                    customTimePicker.showTimePickerDialog();
                                 }
                             });
                         }
                     } else {
-                        // Handle null or empty response
+
                     }
                 } else {
-                    // Handle unsuccessful response
+
                 }
             }
 
@@ -200,11 +217,12 @@ public class ReservationActivity extends AppCompatActivity {
         });
     }
 
-    private void requestReservation(String personId, String floor, String slot){
+    private void requestReservation(String personId, String floor, String slot, String time){
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("personId", personId);
         jsonObject.addProperty("floor", floor);
         jsonObject.addProperty("slot", slot);
+        jsonObject.addProperty("timein", time);
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), jsonObject.toString());
 

@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Terms and condition"
+        android:text="About system"
         android:textAlignment="center"
         android:textSize="25dp"
         android:background="@color/black"
@@ -22,28 +22,86 @@
         android:textAllCaps="true"
         />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The act of stopping and disengaging a vehicle and leaving it unoccpied. Parking on one or both sides of a road is often permitted, though sometimes with restrictions. Some buildings have parking facilities for use of the buldings users. Countries and local goverments have rules."
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_margin="14dp"
-        android:lineHeight="40dp"
-        />
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Online Parking Management System"
+                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:layout_margin="14dp"
+                android:textStyle="bold"
+                android:lineHeight="40dp"
+                />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/backHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back to Dashboard"
-        android:background="@color/black"
-        android:layout_margin="14dp"
-        android:layout_gravity="bottom|end"
-        android:padding="20dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="An Online Parking Management System is to develop a streamlined platform using Python that facilitates user-friendly parking experiences aimed at simplifying parking facility management by automating a variety of tasks and providing real-time information about the parking facility."
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="20dp"
+                android:lineHeight="40dp"
+                />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Key Features"
+                android:textSize="23dp"
+                android:textColor="@color/black"
+                android:layout_margin="14dp"
+                android:textStyle="bold"
+                android:lineHeight="40dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Real-Time Availability\n
+This feature displays up-to-date information about the availability of parking spots. Users can check the status of parking availability and pre-book their parking space if the option is available.
+\n\n
+2. Online Reservation\n
+This allows users to reserve parking spots for a specified time slot and make payment for their reservation onsite.
+\n\n
+3. User Management\n
+The system maintains a database of registered users. Customers can create their profiles, manage them, and maintain their vehicle and payment details for easier transactions.
+\n\n
+4. Report Generation\n
+The system can generate reports pertaining to revenue, user behavior, parking usage, peak times, and more, providing valuable insights for the parking facility management.
+\n\n
+5. Notifications and Alerts\n
+Users receive notifications and reminders about their parking reservations, payments, and time slots.
+"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="20dp"
+                android:lineHeight="40dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/backHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back to Dashboard"
+                android:background="@color/black"
+                android:layout_margin="14dp"
+                android:layout_gravity="bottom|end"
+                android:padding="20dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

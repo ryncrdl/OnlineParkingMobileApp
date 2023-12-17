@@ -37,7 +37,7 @@ public class StatusReservationAdapter extends RecyclerView.Adapter<StatusReserva
         PersonResponse person = persons.get(position);
         holder.carName.setText(person.getCar());
         if(person.getTimein().contains("none")){
-            holder.timein.setText("Currently Not Parked");
+            holder.timein.setText("--");
         }else{
             holder.timein.setText(person.getTimein());
         }
@@ -45,7 +45,7 @@ public class StatusReservationAdapter extends RecyclerView.Adapter<StatusReserva
         if(person.getTimeout().contains("none") && person.getTimein().contains("none")){
             holder.timeout.setText("--");
         }else{
-            holder.timeout.setText(person.getTimein());
+            holder.timeout.setText(person.getTimeout());
         }
 
         if(person.getDate().contains("none") && person.getTimeout().contains("none") && person.getTimein().contains("none")){
